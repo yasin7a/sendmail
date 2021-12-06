@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/000000/external-mail-mail-vitaliy-gorbachev-lineal-color-vitaly-gorbachev-49.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Yanone+Kaffeesatz:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>send mail</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #f2dba6;
+        color: #292823;
+        min-height: 100vh;
+        font-family: "Courier Prime", monospace;
+        display: grid;
+        place-items: center;
+        animation: fadeIn 2s cubic-bezier(0.175, 0.885, 0.32, 1.78) forwards;
+        will-change: box-shadow;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          box-shadow: 0px 0px 0px 10px #292823 inset;
+        }
+        30% {
+          box-shadow: 0px 0px 0px 10px #5b3f3f inset,
+            0px 0px 0px 20px #403636 inset;
+        }
+        60% {
+          box-shadow: 0px 0px 0px 10px #5b3f3f inset,
+            0px 0px 0px 20px #403636 inset, 0px 0px 0px 30px #422727 inset;
+        }
+        100% {
+          box-shadow: 0px 0px 0px 10px #5b3f3f inset,
+            0px 0px 0px 20px #403636 inset, 0px 0px 0px 30px #422727 inset,
+            0px 0px 0px 40px #954a4ae0 inset;
+        }
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        display: block;
+        padding: 15px;
+      }
+      form input,
+      form textarea {
+        display: block;
+        width: 100%;
+        background: transparent;
+        border: 2px solid #292823;
+        font-family: "Courier Prime", monospace;
+        padding: 1rem;
+        font-size: clamp(0.7rem, 1vw + 0.5rem, 1rem);
+        margin-bottom: 16px;
+        resize: vertical;
+      }
+      form input:focus-visible,
+      form textarea:focus-visible {
+        outline: 0;
+        color: #000;
+        border: 2px solid #02003178;
+      }
+      button {
+        padding: 1rem 4rem;
+        background: repeating-linear-gradient(
+          45deg,
+          #606dbc00,
+          #606dbc00 10px,
+          #29282363 10px,
+          #2928236b 20px
+        );
+        font-family: "Courier Prime", monospace;
+        font-size: 1.5rem;
+        color: #292823;
+        border: 0;
+        margin: 0 auto;
+        display: block;
+        cursor: pointer;
+        transition: color 0.5s ease-in-out;
+      }
+      button:hover {
+        background: repeating-linear-gradient(
+          45deg,
+          #606dbc00,
+          #606dbc00 10px,
+          #7d7b6d63 10px,
+          #2928236b 20px
+        );
+        color: #373020;
+      }
+      .msg {
+        color: green;
+        margin: 2rem 0;
+        font-size: 1.2rem;
+      }
+      .d-block {
+        display: block;
+      }
+      .d-none {
+        display: none;
+      }
+      footer p {
+        color: #201f2b9c;
+        mix-blend-mode: color-burn;
+      }
+      @media screen and (max-width: 600px) {
+        .container {
+          padding: 50px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Send mail to your friends</h1>
+      <form action="/" method="POST" class="form-mail">
+        <input
+          type="text"
+          name="name"
+          placeholder="Enter Your Name"
+          autofocus
+          required
+        />
+        <input
+          type="email"
+          name="formMail"
+          placeholder="To: Enter his/her Email Address"
+          required
+        />
+        <textarea
+          name="massage"
+          rows="5"
+          placeholder="Massage Something..."
+          required
+        ></textarea>
+        <p class="msg <%= ssg ? 'd-block' : 'd-none'%>">
+          Massage successfully sent !!!
+        </p>
+        <button type="submit" class="btn">Send Mail</button>
+      </form>
+    </div>
+    <footer>
+      <p>powered by Lecodesign</p>
+    </footer>
+    <script></script>
+  </body>
+</html>
