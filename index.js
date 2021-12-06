@@ -1,5 +1,6 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
+const smtpPool = require("nodemailer-smtp-pool");
 const app = express();
 
 // setting
@@ -17,17 +18,19 @@ app.get("/", (req, res) => {
 app.post("/", async (req, res) => {
   try {
     let { name, formMail, massage } = req.body;
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      host: "smtp.gmail.com",
-      secure: true,
-      port: 465,
+    const transporter = nodemailer.createTransport(
+      smtpPool({
+        service: "gmail",
+        host: "smtp.gmail.com",
+        secure: true,
+        port: 465,
 
-      auth: {
-        user: "shwapnabeesh@gmail.com",
-        pass: "shwapnabeeshc17",
-      },
-    });
+        auth: {
+          user: "shwapnabeesh@gmail.com",
+          pass: "shwapnabeeshc17",
+        },
+      })
+    );
 
     let info = await transporter.sendMail({
       from: "shwapnabeesh@gmail.com",
