@@ -29,14 +29,14 @@ app.post("/", async (req, res) => {
         port: 465,
 
         auth: {
-          user: `${process.env.MAIL}`,
-          pass: `${process.env.MPASS}`,
+          user: "lebriact@gmail.com",
+          pass: "1234lebriact..",
         },
       })
     );
 
     let info = await transporter.sendMail({
-      from: `${process.env.MAIL}`,
+      from: "lebriact@gmail.com",
       to: `${formMail}`,
       subject: `A mail from ${name}`,
       text: `${massage}`,
@@ -49,6 +49,7 @@ app.post("/", async (req, res) => {
     console.log(error);
   }
 });
+
 app.listen(PORT, () => {
   console.log("Listening on port", PORT + "...");
 });
